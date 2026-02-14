@@ -5,7 +5,7 @@ import type { Prisma } from "../../../generated/prisma/client.ts";
 const characterService = new CharacterService();
 
 export const createCharacter = async (req: Request, res: Response) => {
-    const { data } = req.body as { data: Prisma.CharacterCreateInput };
+    const data = req.body as Prisma.CharacterCreateInput;
 
     await characterService.createCharacter(data);
 
@@ -21,7 +21,7 @@ export const getAllCharacters = async (req: Request, res: Response) => {
     res.status(200).json({
         success: true,
         message: "Usuarios obtenidos exitosamente",
-        data: [chartacters],
+        data: chartacters,
     });
 };
 

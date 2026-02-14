@@ -18,9 +18,8 @@ export class CharacterService {
     createCharacter = async (data: Prisma.CharacterCreateInput) => {
         const newCharacter = await respository.createCharacter(data);
 
-        if (!newCharacter) {
+        if (!newCharacter)
             throw new ApiError(400, "Hubo un error creando al personaje");
-        }
 
         return true;
     };
@@ -32,9 +31,8 @@ export class CharacterService {
     getAllCharacters = async () => {
         const characters = await respository.findAll();
 
-        if (!characters) {
+        if (!characters.length)
             throw new ApiError(404, "No existen personajes registrados");
-        }
 
         return characters;
     };
@@ -47,9 +45,7 @@ export class CharacterService {
     getById = async (id: number) => {
         const character = await respository.findById(id);
 
-        if (!character) {
-            throw new ApiError(404, "El personaje no existe");
-        }
+        if (!character) throw new ApiError(404, "El personaje no existe");
 
         return character;
     };

@@ -41,4 +41,5 @@ app.listen(PORT, async () => {
     }
 });
 
+// Middleware para manejar errores y excepciones.
 app.use(errorHandler);
