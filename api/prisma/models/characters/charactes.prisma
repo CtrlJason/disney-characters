@@ -4,6 +4,7 @@ model Character {
     date        DateTime
     description String
     image       String
+    films       String[]
 
     createAt DateTime @default(now())
     updateAt DateTime @updatedAt
