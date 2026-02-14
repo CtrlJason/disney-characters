@@ -1,0 +1,10 @@
+model Character {
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    name        String
+    date        DateTime
+    description String
+    image       String
+
+    createAt DateTime @default(now())
+    updateAt DateTime @updatedAt
+}

@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 // Routes
-import characterRoutes from "./characters/charactersRoutes.ts"
+import characterRoutes from "./characters/characters.routes.ts"
 
 const router = Router()
 

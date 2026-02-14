@@ -1,7 +1,9 @@
+import "dotenv/config";
+
 import express from "express"
 
 // Routes
-import router from "./routes/index.ts"
+import router from "./src/routes/routes.ts"
 
 // Types
 import type { Request, Response } from "express"
@@ -9,7 +11,7 @@ import type { Request, Response } from "express"
 const app = express()
 
 // Puerto
-const PORT = process.env.PORT || 3001
+const PORT = process.env["PORT"] || 3001
 
 app.use(express.json())
 

@@ -7,14 +7,14 @@ export const CreateCharacter = (req: Request, res: Response) => {
     })
 }
 
-export const GetAllCharacters = (req: Request, res: Response) => {
+export const GetAllCharacters = (_req: Request, res: Response) => {
     res.status(200).json({
         message: "Usuarios obtenidos exitosamente",
         data: []
     });
 }
 
-export const GetCharacterByID = (req: Request, res: Response) => {
+export const GetCharacterByID = (_req: Request, res: Response) => {
     res.status(200).json({
         message: "Usuario obtenido con exito",
         data: {}
