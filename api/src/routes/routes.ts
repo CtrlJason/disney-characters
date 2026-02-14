@@ -1,11 +1,11 @@
 import { Router } from "express";
 
 // Routes
-import characterRoutes from "./characters/characters.routes.ts"
+import characterRoutes from "./characters/characters.routes.ts";
 
-const router = Router()
+const router = Router();
 
 // Personajes Disney
-router.use("/characters", characterRoutes)
+router.use("/characters", characterRoutes);
 
-export default router
+export default router;
