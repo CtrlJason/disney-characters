@@ -2,6 +2,9 @@ import "dotenv/config";
 
 import express from "express";
 
+// Middlewares
+import { errorHandler } from "./src/middlewares/errorHandler.ts";
+
 // Config Prisma
 import { prisma } from "./src/lib/db/prisma.ts";
 
@@ -37,3 +40,5 @@ app.listen(PORT, async () => {
         process.exit(1);
     }
 });
+
+app.use(errorHandler);

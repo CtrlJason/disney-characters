@@ -1,18 +1,25 @@
+// Utils
 import { prisma } from "../../../lib/db/prisma.ts";
 
+// Types
+import type { Prisma } from "../../../generated/prisma/client.ts";
+
 export class CharactersRepository {
-    createCharacter = (data: any) => {
-        prisma.character.create({
+    // Crear personaje
+    createCharacter = async (data: Prisma.CharacterCreateInput) => {
+        return await prisma.character.create({
             data: data,
         });
     };
 
-    findAll = () => {
-        prisma.character.findMany();
+    // Buscar todos los personajes
+    findAll = async () => {
+        return await prisma.character.findMany();
     };
 
-    findById = (id: number) => {
-        prisma.character.findUnique({
+    // Encontrar un personaje por ID unico
+    findById = async (id: number) => {
+        return await prisma.character.findUnique({
             where: { id },
         });
     };

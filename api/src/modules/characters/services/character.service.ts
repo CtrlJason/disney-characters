@@ -4,19 +4,39 @@ import { CharactersRepository } from "../repositories/characters.repository.ts";
 // Utility http errors
 import { ApiError } from "../../../lib/errors/ApiErros.ts";
 
+// Types
+import type { Prisma } from "../../../generated/prisma/client.ts";
+
 const respository = new CharactersRepository();
 
 export class CharacterService {
+    /** Crea un nuevo personaje
+     *
+     * @param data (Name, dete, description, image)
+     * @returns new character
+     */
+    createCharacter = async (data: Prisma.CharacterCreateInput) => {
+        const newCharacter = await respository.createCharacter(data);
+
+        if (!newCharacter) {
+            throw new ApiError(400, "Hubo un error creando al personaje");
+        }
+
+        return true;
+    };
+
     /** Obtiene a todos los personajes
      *
      * @returns all characters
      */
     getAllCharacters = async () => {
-        const charactersExist = await respository.findAll;
+        const characters = await respository.findAll();
 
-        if (!charactersExist) {
+        if (!characters) {
             throw new ApiError(404, "No existen personajes registrados");
         }
+
+        return characters;
     };
 
     /** Obtiene un personaje por su ID
@@ -25,15 +45,12 @@ export class CharacterService {
      * @returns character
      */
     getById = async (id: number) => {
-        return await respository.findById(id);
-    };
+        const character = await respository.findById(id);
 
-    /** Crea un nuevo personaje
-     *
-     * @param data (Name, dete, description, image)
-     * @returns new character
-     */
-    createCharacter = async (data: any) => {
-        return await respository.createCharacter(data);
+        if (!character) {
+            throw new ApiError(404, "El personaje no existe");
+        }
+
+        return character;
     };
 }
