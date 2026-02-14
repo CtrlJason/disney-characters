@@ -1,10 +1,19 @@
 import { Router } from "express";
 
+// Middleware
+import { validate } from "../../middlewares/validate.ts";
+
+// DTOs
+import {
+    createCharacterDto,
+    getCharacterByIdDto,
+} from "../../modules/characters/dto/characters.dto.ts";
+
 // Routes
 import {
     createCharacter,
     getAllCharacters,
-    getCharacterByID,
+    getCharacterById,
 } from "../../modules/characters/controller/character.controller.ts";
 
 /** Crud de personajes Disney
@@ -15,8 +24,10 @@ import {
  */
 const router = Router();
 
-router.post("/", createCharacter);
+router.post("/", createCharacterDto, validate, createCharacter);
+
 router.get("/", getAllCharacters);
-router.get("/:id", getCharacterByID);
+
+router.get("/:id", getCharacterByIdDto, validate, getCharacterById);
 
 export default router;

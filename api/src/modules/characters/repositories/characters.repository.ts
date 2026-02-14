@@ -4,7 +4,7 @@ import { prisma } from "../../../lib/db/prisma.ts";
 // Types
 import type { Prisma } from "../../../generated/prisma/client.ts";
 
-export class CharactersRepository {
+class CharactersRepository {
     // Crear personaje
     createCharacter = async (data: Prisma.CharacterCreateInput) => {
         return await prisma.character.create({
@@ -24,3 +24,6 @@ export class CharactersRepository {
         });
     };
 }
+
+// Se exporta una unica instancia
+export const charactersRepository = new CharactersRepository();

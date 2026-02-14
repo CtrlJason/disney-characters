@@ -1,8 +1,8 @@
-import type { Request, Response } from "express";
-import { CharacterService } from "../services/character.service.ts";
-import type { Prisma } from "../../../generated/prisma/client.ts";
+import { characterService } from "../services/character.service.ts";
 
-const characterService = new CharacterService();
+// Types
+import type { Request, Response } from "express";
+import type { Prisma } from "../../../generated/prisma/client.ts";
 
 export const createCharacter = async (req: Request, res: Response) => {
     const data = req.body as Prisma.CharacterCreateInput;
@@ -25,7 +25,7 @@ export const getAllCharacters = async (req: Request, res: Response) => {
     });
 };
 
-export const getCharacterByID = async (req: Request, res: Response) => {
+export const getCharacterById = async (req: Request, res: Response) => {
     const { id } = req.params as { id: string };
 
     const character = await characterService.getById(parseInt(id)); // Se transforma el ID a int para que prisma lo pueda leer

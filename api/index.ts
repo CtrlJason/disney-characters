@@ -30,8 +30,9 @@ app.use("/api", router);
 
 app.listen(PORT, async () => {
     try {
-        await prisma.$connect();
-        console.log("✅ Conexion a la base de datos (PostgreSQL) exitosa");
+        // Query test para probar conectividad con la base de datos
+        await prisma.$queryRaw`SELECT 1`;
+        console.log("✅ Conexion a la base de datos (PostgreSQL) activa");
         console.log(
             `⚡ Servidor ejecutandose en el puerto: http://localhost:${PORT}`,
         );
