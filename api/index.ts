@@ -2,6 +2,9 @@ import "dotenv/config";
 
 import express from "express"
 
+// Config Prisma
+import { prisma } from "./src/lib/prisma.ts";
+
 // Routes
 import router from "./src/routes/routes.ts"
 
@@ -22,6 +25,13 @@ app.get("/", (req: Request, res: Response) => {
 // Rutas
 app.use("/api", router)
 
-app.listen(PORT, () => {
-    console.log(`⚡ Servidor ejecutandose en el puerto: http://localhost:${PORT}`)
+app.listen(PORT, async () => {
+    try {
+        await prisma.$connect()
+        console.log("✅ Conexion a la base de datos (PostgreSQL) exitosa")
+        console.log(`⚡ Servidor ejecutandose en el puerto: http://localhost:${PORT}`)
+    } catch (error) {
+        console.error("Error conectando a MongoDB: ", error)
+        process.exit(1)
+    }
 })

@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 // Routes
-import { CreateCharacter, GetAllCharacters, GetCharacterByID } from "../../modules/characters/controllers/character.controller.ts";
+import { CreateCharacter, GetAllCharacters, GetCharacterByID } from "../../modules/characters/controller/character.controller.ts";
 
 /** Crud de personajes Disney
  * 
