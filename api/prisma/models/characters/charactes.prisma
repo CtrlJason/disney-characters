@@ -3,7 +3,7 @@ model Character {
     name        String
     date        DateTime
     description String
-    image       String
+    imageUrl    String
     films       String[]
 
     createAt DateTime @default(now())

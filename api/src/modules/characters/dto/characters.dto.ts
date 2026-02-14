@@ -16,7 +16,7 @@ export const createCharacterDto = [
         .withMessage("La descripción es obligatorio")
         .isString()
         .withMessage("La descripcion debe ser un string"),
-    body("image")
+    body("imageUrl")
         .notEmpty()
         .withMessage("El Url es obligatorio")
         .isString()
