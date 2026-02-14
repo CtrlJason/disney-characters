@@ -1,8 +1,16 @@
+import Slider from "./components/slider/Slider"
+
 function App() {
   return (
-    <div>
+    <main>
+      <section>
+        <Slider />
+      </section>
 
-    </div>
+      <section>
+
+      </section>
+    </main>
   )
 }
 
