@@ -1,37 +1,36 @@
 import { useState } from "react";
 
 // Types
-import type { characterSlideProps } from "../../types/characters";
+import type { charactersProps } from "../../types/characters";
 
-const sliderHook = (sliderList: characterSlideProps[]) => {
+const sliderHook = (disneyList: charactersProps[]) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const list = disneyList.slice(0, 8);
 
     // Función que devuelve los personajes visibles en el slider (previo, actual y siguiente)
     const getVisibleCharacter = () => {
-        const prev =
-            currentIndex === 0 ? sliderList.length - 1 : currentIndex - 1;
+        const prev = currentIndex === 0 ? list.length - 1 : currentIndex - 1;
         const current = currentIndex;
-        const next =
-            currentIndex === sliderList.length - 1 ? 0 : currentIndex + 1;
+        const next = currentIndex === list.length - 1 ? 0 : currentIndex + 1;
 
         return [
-            { ...sliderList[prev], position: "left" },
-            { ...sliderList[current], position: "center" },
-            { ...sliderList[next], position: "right" },
+            { ...list[prev], position: "left" },
+            { ...list[current], position: "center" },
+            { ...list[next], position: "right" },
         ];
     };
 
     // Manejo personaje anterior
     const handlePrev = () => {
         setCurrentIndex(
-            currentIndex === 0 ? sliderList.length - 1 : currentIndex - 1,
+            currentIndex === 0 ? list.length - 1 : currentIndex - 1,
         );
     };
 
     // Manejo personaje siguiente
     const handleNext = () => {
         setCurrentIndex(
-            currentIndex === sliderList.length - 1 ? 0 : currentIndex + 1,
+            currentIndex === list.length - 1 ? 0 : currentIndex + 1,
         );
     };
 
