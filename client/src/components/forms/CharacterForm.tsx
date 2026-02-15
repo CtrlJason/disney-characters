@@ -1,25 +1,35 @@
+// Hooks
+import { useAlertContext } from "../../context/AlertContext";
 import characterFormHook from "../../hooks/forms/characterFormHook"
 
+// UI
+import Alert from "../ui/Alert";
+
 const CharacterForm = () => {
+    const { status } = useAlertContext();
+
     const { createdCharacter, setCreatedCharacter, handleSubmit, addFilmToCharacter, filmsList } = characterFormHook();
 
     return (
         <div className="relative w-full h-fit flex flex-col gap-4 md:gap-0 md:flex-row items-center justify-center">
+
+            {/* Alerta de estado */}
+            <Alert message={status.message} />
+
+
             {/* Vista previa de la imagen */}
-            <div className="h-[200px] w-[240px] md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 md:w-[700px] md:h-[500px] shadow-lg rounded-xl md:rounded-[10%]">
-                <div className="relative w-full h-full rounded-xl md:rounded-[10%] overflow-hidden">
-                    <img
-                        className={`
-                    ${createdCharacter.imageUrl ? '' : 'blur-[1px]'} w-full h-full object-cover`}
-                        src={createdCharacter.imageUrl || "https://img.freepik.com/foto-gratis/fondo-3d-ninos-castillo_52683-118091.jpg"}
-                        alt={createdCharacter.name}
-                    />
-                    {!createdCharacter.imageUrl && (
-                        <p className="absolute top-1/2 -translate-y-1/2 left-0 w-full px-3 md:text-2xl text-white text-center font-bold">
-                            Agrega el URL de la imagen
-                        </p>
-                    )}
-                </div>
+            <div className="md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 h-[200px] w-[240px] md:w-[700px] md:h-[500px] shadow-lg rounded-xl md:rounded-[10%] border-4 border-white/50">
+                <img
+                    className={`
+                    ${createdCharacter.imageUrl ? '' : 'blur-[1px]'} w-full h-full object-cover rounded-xl md:rounded-[10%]`}
+                    src={createdCharacter.imageUrl || "https://img.freepik.com/foto-gratis/fondo-3d-ninos-castillo_52683-118091.jpg"}
+                    alt={createdCharacter.name}
+                />
+                {!createdCharacter.imageUrl && (
+                    <p className="absolute top-1/2 -translate-y-1/2 left-0 w-full px-3 md:text-2xl text-white text-center font-bold">
+                        Agrega el URL de la imagen
+                    </p>
+                )}
             </div>
 
             {/* Formulario */}

@@ -47,7 +47,9 @@ class CharacterService {
     };
 
     // Método que crea un nuevo personaje
-    createCharacter = async (character: createCharacterProps) => {
+    createCharacter = async (
+        character: createCharacterProps,
+    ): Promise<{ message: string; status: string }> => {
         try {
             const response = await fetch(API_URL, {
                 method: "POST",
@@ -58,7 +60,10 @@ class CharacterService {
             });
 
             if (!response.ok) {
-                throw new Error("Error al crear el personaje");
+                return {
+                    message: "Error al crear el personaje",
+                    status: "error",
+                };
             }
 
             const data = await response.json();

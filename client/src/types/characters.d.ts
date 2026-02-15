@@ -5,8 +5,8 @@ export interface charactersProps {
     description: string;
     films: string[];
     date: string;
-    _id?: string;
-    id?: string;
+    _id?: number;
+    id?: number;
 }
 
 // Interfaz para la creación de personajes

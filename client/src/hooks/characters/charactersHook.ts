@@ -3,11 +3,11 @@ import getAllCharacters from "../../services/disneyService";
 
 // Hooks
 import { useState, useEffect } from "react";
+import { useAlertContext } from "../../context/AlertContext";
 
 // Types
 import type { charactersProps } from "../../types/characters";
 import characterService from "../../services/characterService";
-
 const charactersHook = () => {
     const [charactersApiDisney, setCharactersApiDisney] = useState<
         charactersProps[]
@@ -16,6 +16,8 @@ const charactersHook = () => {
     const [charactersLocal, setCharactersLocal] = useState<charactersProps[]>(
         [],
     );
+
+    const { status } = useAlertContext();
 
     // personajes desde la API de Disney
     const loadCharactersDisney = async () => {
@@ -40,9 +42,12 @@ const charactersHook = () => {
 
     // Carga de personajes
     useEffect(() => {
-        loadCharactersLocal();
-        loadCharactersDisney();
-    }, []);
+        if (status.type === "success" || status.type === "idle") {
+            console.log("Cargando personajes...");
+            loadCharactersDisney();
+            loadCharactersLocal();
+        }
+    }, [status]);
 
     const numberSelectCharacter = () => {
         if (charactersApiDisney.length > 8) {
