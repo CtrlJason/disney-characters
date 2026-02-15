@@ -14,7 +14,12 @@ class CharacterService {
      * @returns new character
      */
     createCharacter = async (data: Prisma.CharacterCreateInput) => {
-        const newCharacter = await charactersRepository.createCharacter(data);
+        // Formateo de fecha a ISO 8601 para asegurar compatibilidad con la base de datos
+        const formatedDate = new Date(data.date).toISOString();
+        const newCharacter = await charactersRepository.createCharacter({
+            ...data,
+            date: formatedDate,
+        });
 
         if (!newCharacter)
             throw new ApiError(400, "Hubo un error creando al personaje");
