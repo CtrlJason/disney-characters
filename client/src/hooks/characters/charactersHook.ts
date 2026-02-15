@@ -17,17 +17,28 @@ const charactersHook = () => {
         [],
     );
 
-    // Carga de personajes desde la API de Disney
+    // personajes desde la API de Disney
     const loadCharactersDisney = async () => {
         const characters = await getAllCharacters();
-        setCharactersApiDisney(characters.data);
+        setCharactersApiDisney(characters);
     };
-    // Carga de personajes desde la API local
+    // personajes desde la API local
     const loadCharactersLocal = async () => {
         const characters = await characterService.getAllCharacters();
         setCharactersLocal(characters);
     };
 
+    // Lista de películas sin duplicados
+    const filmsList = charactersApiDisney.reduce((acc: string[], character) => {
+        character.films.map((film) => {
+            if (!acc.includes(film)) {
+                acc.push(film);
+            }
+        });
+        return acc;
+    }, []);
+
+    // Carga de personajes
     useEffect(() => {
         loadCharactersLocal();
         loadCharactersDisney();
@@ -41,7 +52,12 @@ const charactersHook = () => {
         }
     };
 
-    return { charactersApiDisney, charactersLocal, numberSelectCharacter };
+    return {
+        charactersApiDisney,
+        charactersLocal,
+        filmsList,
+        numberSelectCharacter,
+    };
 };
 
 export default charactersHook;

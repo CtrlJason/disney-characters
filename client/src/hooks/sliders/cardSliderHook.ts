@@ -11,15 +11,20 @@ const cardSliderHook = (
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const list = [...disneyList.slice(0, 8), ...charactersLocal];
+    const list = [
+        ...(disneyList.length ? disneyList.slice(0, 12) : []),
+        ...(charactersLocal.length ? charactersLocal : []),
+    ];
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
 
+        // Se agrega el listener para detectar cambios en el tamaño de la ventana (Prueba de responsividad)
         window.addEventListener("resize", handleResize);
 
+        // Se limpia el listener al desmontar el componente
         return () => {
             window.removeEventListener("resize", handleResize);
         };

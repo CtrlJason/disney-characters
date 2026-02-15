@@ -1,11 +1,16 @@
 // Interface base para los personajes de Disney
 export interface charactersProps {
     name: string;
-    date: string;
-    description?: string;
     imageUrl: string;
+    description: string;
     films: string[];
+    date: string;
+    _id?: string;
+    id?: string;
 }
 
-// Interfaz para el formulario de creación de personajes
-export interface characterFormProps extends charactersProps {}
+// Interfaz para la creación de personajes
+export interface createCharacterProps extends Omit<
+    charactersProps,
+    "_id" | "id"
+> {}

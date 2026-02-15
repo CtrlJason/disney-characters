@@ -1,7 +1,10 @@
 const API_URL = "https://api.disneyapi.dev/character";
 
+// Types
+import type { charactersProps } from "../types/characters";
+
 // Método que obtiene todos los personajes de la API de Disney
-const getAllCharacters = async () => {
+const getAllCharacters = async (): Promise<charactersProps[]> => {
     try {
         const response = await fetch(API_URL);
 
@@ -9,9 +12,9 @@ const getAllCharacters = async () => {
             throw new Error("Error al obtener los personajes");
         }
 
-        const data = await response.json();
+        const result = await response.json();
 
-        return data;
+        return result.data;
     } catch (error) {
         console.error("Error al obtener los personajes:", error);
         return [];

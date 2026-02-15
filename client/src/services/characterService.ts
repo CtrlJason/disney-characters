@@ -1,5 +1,5 @@
 // Types
-import type { charactersProps } from "../types/characters";
+import type { createCharacterProps } from "../types/characters";
 
 const API_URL = "http://localhost:3000/api/characters";
 
@@ -7,15 +7,21 @@ class CharacterService {
     // Método que obtiene todos los personajes
     getAllCharacters = async () => {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(API_URL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
 
             if (!response.ok) {
                 throw new Error("Error al obtener los personajes");
             }
 
-            const data = await response.json();
+            const result = await response.json();
+            console.log("Personajes obtenidos:", result.data);
 
-            return data;
+            return result.data;
         } catch (error) {
             console.error("Error al obtener los personajes:", error);
             return [];
@@ -31,9 +37,9 @@ class CharacterService {
                 throw new Error("Error al obtener el personaje");
             }
 
-            const data = await response.json();
+            const result = await response.json();
 
-            return data;
+            return result.data;
         } catch (error) {
             console.error("Error al obtener el personaje:", error);
             return null;
@@ -41,7 +47,7 @@ class CharacterService {
     };
 
     // Método que crea un nuevo personaje
-    createCharacter = async (character: charactersProps) => {
+    createCharacter = async (character: createCharacterProps) => {
         try {
             const response = await fetch(API_URL, {
                 method: "POST",
