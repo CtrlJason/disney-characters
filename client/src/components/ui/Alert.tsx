@@ -12,7 +12,7 @@ const Alert = ({ message }: { message: string }) => {
 
     return (
         <div>
-            {status && (
+            {status.isActive && (
                 <div className={`fixed z-20 top-4 right-4 ${colors[status.type]} text-white px-4 py-2 rounded shadow-lg`}>
                     {message}
                 </div>

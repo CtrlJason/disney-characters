@@ -6,7 +6,7 @@ const CreateCharacter = () => {
             {/* Título */}
             <div className="flex flex-col gap-2 mb-5 md:mb-15">
                 <h2 className="text-2xl md:text-4xl text-white text-center font-bold">Crea un personaje</h2>
-                <p className="text-white text-center">Haz clic en los personajes para ver más información</p>
+                <p className="text-white text-center">Completa el formulario de registro</p>
             </div>
 
             {/* Formulario */}

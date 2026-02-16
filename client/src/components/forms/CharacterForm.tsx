@@ -16,12 +16,11 @@ const CharacterForm = () => {
             {/* Alerta de estado */}
             <Alert message={status.message} />
 
-
             {/* Vista previa de la imagen */}
-            <div className="md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 h-[200px] w-[240px] md:w-[700px] md:h-[500px] shadow-lg rounded-xl md:rounded-[10%] border-4 border-white/50">
+            <div className="md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 h-[200px] w-[240px] md:w-[700px] md:h-[500px] shadow-lg rounded-xl md:rounded-[10%] overflow-hidden border-4 border-white/50">
                 <img
                     className={`
-                    ${createdCharacter.imageUrl ? '' : 'blur-[1px]'} w-full h-full object-cover rounded-xl md:rounded-[10%]`}
+                    ${createdCharacter.imageUrl ? '' : 'blur-[1px]'} w-full h-full object-cover`}
                     src={createdCharacter.imageUrl || "https://img.freepik.com/foto-gratis/fondo-3d-ninos-castillo_52683-118091.jpg"}
                     alt={createdCharacter.name}
                 />

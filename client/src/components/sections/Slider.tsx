@@ -2,6 +2,7 @@
 // Hooks
 import charactersHook from "../../hooks/characters/charactersHook";
 import sliderHook from "../../hooks/sliders/sliderHook"
+import DragButton from "../ui/DragButton";
 
 const Slider = () => {
 
@@ -9,10 +10,10 @@ const Slider = () => {
     const { charactersApiDisney, numberSelectCharacter } = charactersHook();
 
     // Obtenemos las funciones y el estado necesario para el slider
-    const { currentIndex, selectCharacter, getVisibleCharacter } = sliderHook(charactersApiDisney);
+    const { currentIndex, getVisibleCharacter, listIndex, selectCharacter } = sliderHook(charactersApiDisney);
 
     return (
-        <div className="relative w-full px-2 py-5 md:py-10">
+        <div className="relative w-full px-2 py-5 md:py-10 md:px-10">
 
             {/* Carrousel de imagenes */}
             <div className="relative flex items-center justify-center gap-2 md:gap-20">
@@ -40,9 +41,8 @@ const Slider = () => {
                 ))}
             </div>
 
-
             {/* Botones de selección */}
-            <div className="flex justify-center gap-3 md:gap-4 mt-6 md:mt-8">
+            <div className="flex justify-center gap-3 md:gap-4 mt-6 mb-6 md:mt-8 md:mb-10">
                 {charactersApiDisney && Array(numberSelectCharacter()).fill(0).map((_, index) => (
                     <button
                         key={index}
@@ -66,6 +66,9 @@ const Slider = () => {
                     </button>
                 ))}
             </div>
+
+            {/* Botón de arrastre */}
+            <DragButton listIndex={listIndex} selectIndex={selectCharacter} />
         </div>
     )
 }

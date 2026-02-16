@@ -40,11 +40,19 @@ const sliderHook = (disneyList: charactersProps[]) => {
     };
 
     return {
+        // Índice del personaje seleccionado
         currentIndex,
+
+        // Funciones para manejar el slider
         handlePrev,
         handleNext,
-        selectCharacter,
+
+        // Mostrar los personajes en el slider
         getVisibleCharacter,
+
+        // Para el botón de arrastre
+        listIndex: list.length,
+        selectCharacter,
     };
 };
 

@@ -2,6 +2,7 @@ export type alertStatusProps = "idle" | "success" | "error";
 
 export interface alertProps {
     type: alertStatusProps;
+    isActive: boolean;
     message: string;
 }
 

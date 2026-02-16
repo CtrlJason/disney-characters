@@ -7,6 +7,7 @@ const alertHook = (): alertContextProps => {
     // Estado de feedback para mostrar mensajes de éxito o error
     const [status, setStatus] = useState<alertProps>({
         type: "idle", // 'idle' | 'success' | 'error'
+        isActive: false,
         message: "",
     });
 
@@ -15,7 +16,7 @@ const alertHook = (): alertContextProps => {
         setStatus(status);
 
         setTimeout(() => {
-            setStatus({ message: "", type: "idle" });
+            setStatus({ message: "", type: "idle", isActive: false });
         }, 3000);
     };
 
