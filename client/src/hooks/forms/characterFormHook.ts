@@ -51,6 +51,7 @@ const characterFormHook = () => {
 
         if (response.status === "error") {
             handleStatusAlert({
+                isActive: true,
                 message: response.message,
                 type: "error",
             });
@@ -61,6 +62,7 @@ const characterFormHook = () => {
 
         // Mostramos un mensaje de éxito
         handleStatusAlert({
+            isActive: true,
             message: "Personaje creado exitosamente",
             type: "success",
         });
