@@ -76,7 +76,7 @@ Si estás usando **PowerShell** y los comandos `npm` no se ejecutan correctament
 
 ```bash
 git clone https://github.com/CtrlJason/disney-characters
-cd disney-character
+cd disney-characters
 ```
 
 ### 2. Levantar la Base de Datos (Docker)
