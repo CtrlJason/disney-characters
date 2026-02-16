@@ -46,7 +46,7 @@ app.listen(PORT, async () => {
             `⚡ Servidor ejecutandose en el puerto: http://localhost:${PORT}`,
         );
     } catch (error) {
-        console.error("Error conectando a MongoDB: ", error);
+        console.error("Error conectando a Docker PostgreSQL: ", error);
         process.exit(1);
     }
 });

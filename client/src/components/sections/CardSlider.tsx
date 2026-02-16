@@ -16,19 +16,19 @@ const Cards = () => {
     return (
         <div className="flex flex-col gap-4 py-5 px-2 md:py-10">
             <div className="flex flex-col gap-2">
-                <h2 className="text-2xl md:text-4xl text-white text-center font-bold">Personajes Disney</h2>
-                <p className="text-white text-center">Haz clic en los personajes para ver más información</p>
+                <h2 className="text-2xl md:text-4xl text-gray-800 text-center font-bold">Personajes Disney</h2>
+                <p className="text-gray-700 text-center">Haz clic en los personajes para ver más información</p>
             </div>
 
             <div className="relative">
-                <ButtonArrow handleDirection={handlePrev} direccion="left" />
+                <ButtonArrow parentFunction={handlePrev} direccion="left" />
 
                 <div className={`${isMobile ? "flex justify-center" : "grid grid-cols-2"} w-full max-w-[350px] md:max-w-[800px] ap-4 md:gap-6 mx-auto`}>
                     {getVisibleCharacter().map((character, index) => (
                         <Link
                             to={`/character/${character._id || character.id}`}
                             key={index}
-                            className="relative h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-xl overflow-hidden shadow-md border-4 border-white/50 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                            className="relative h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-xl overflow-hidden shadow-lg border-4 border-white hover:scale-105 transition-transform duration-300 cursor-pointer"
                         >
                             <img
                                 className="object-cover w-full h-full"
@@ -47,7 +47,7 @@ const Cards = () => {
                     ))}
                 </div>
 
-                <ButtonArrow handleDirection={handleNext} direccion="right" />
+                <ButtonArrow parentFunction={handleNext} direccion="right" />
             </div>
         </div>
     )

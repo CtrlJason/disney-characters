@@ -1,5 +1,5 @@
 export interface ButtonArrowProps {
-    handleDirection: () => void;
+    parentFunction?: () => void;
     direccion: "left" | "right";
 }
 

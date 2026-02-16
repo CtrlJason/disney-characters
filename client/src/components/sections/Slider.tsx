@@ -26,7 +26,7 @@ const Slider = () => {
             <div className="relative flex items-center justify-center gap-2 md:gap-20">
                 {getVisibleCharacter().map((character) => (
                     <div
-                        className={`relative border-4 border-white rounded-lg shadow-md overflow-hidden ${character.position === "left"
+                        className={`relative border-4 border-white rounded-lg shadow-lg overflow-hidden ${character.position === "left"
                             ? "h-[300px] w-[150px] md:h-[450px] md:w-[350px]"
                             : character.position === "center"
                                 ? "h-[350px] w-[200px] md:h-[650px] md:w-[510px]"
@@ -63,7 +63,7 @@ const Slider = () => {
                             className="md:w-5 md:h-5"
                             viewBox="0 0 24 24"
                             fill={currentIndex === index ? "#FFD700" : "none"}
-                            stroke={currentIndex === index ? "#FFD700" : "#ffffff"}
+                            stroke={currentIndex === index ? "#FFD700" : "#333333"}
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"

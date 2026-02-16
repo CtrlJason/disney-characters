@@ -17,7 +17,7 @@ const CharacterForm = () => {
             <Alert message={status.message} />
 
             {/* Vista previa de la imagen */}
-            <div className="md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 h-[200px] w-[240px] md:w-[700px] md:h-[500px] shadow-lg rounded-xl md:rounded-[10%] overflow-hidden border-4 border-white/50">
+            <div className="md:absolute md:right-10 md:top-1/2 md:-translate-y-1/2 h-[200px] w-[240px] md:w-[700px] md:h-[500px] shadow-lg rounded-xl md:rounded-[10%] overflow-hidden border-4 border-white">
                 <img
                     className={`
                     ${createdCharacter.imageUrl ? '' : 'blur-[1px]'} w-full h-full object-cover`}
@@ -148,7 +148,7 @@ const CharacterForm = () => {
                     <div className="col-span-2">
                         <button
                             type="submit"
-                            className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-md font-bold py-3 rounded transition-colors duration-200 cursor-pointer"
+                            className="w-full bg-gray-800 hover:bg-gray-900 transition-all duration-150 hover:scale-105 text-white shadow-md font-bold py-3 rounded cursor-pointer"
                         >
                             Crear personaje
                         </button>

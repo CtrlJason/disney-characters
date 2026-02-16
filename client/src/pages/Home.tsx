@@ -4,7 +4,7 @@ import CreateCharacter from "../components/sections/createCharacter"
 
 function Home() {
   return (
-    <main className="bg-gradient-to-bl from-blue-400 to-blue-600">
+    <main className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
       <section>
         <Slider />
       </section>
