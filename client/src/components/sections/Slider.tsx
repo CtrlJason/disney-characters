@@ -1,16 +1,23 @@
 
 // Hooks
+import { useRef } from "react";
 import charactersHook from "../../hooks/characters/charactersHook";
 import sliderHook from "../../hooks/sliders/sliderHook"
 import DragButton from "../ui/DragButton";
 
 const Slider = () => {
+    // ============ LÓGICA DEL DRAG ============
+    // Referencias para el drag
+    const barRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
 
+    // ============ LÓGICA DEL SLIDER ============
     // Obtenemos los personajes desde el hook de personajes
     const { charactersApiDisney, numberSelectCharacter } = charactersHook();
 
     // Obtenemos las funciones y el estado necesario para el slider
-    const { currentIndex, getVisibleCharacter, listIndex, selectCharacter } = sliderHook(charactersApiDisney);
+    const {
+        currentIndex, getVisibleCharacter, selectCharacter, position, handleMouseDown } = sliderHook({ barRef, buttonRef, disneyList: charactersApiDisney });
 
     return (
         <div className="relative w-full px-2 py-5 md:py-10 md:px-10">
@@ -68,7 +75,7 @@ const Slider = () => {
             </div>
 
             {/* Botón de arrastre */}
-            <DragButton listIndex={listIndex} selectIndex={selectCharacter} />
+            <DragButton barRef={barRef} buttonRef={buttonRef} position={position} handleMouseDown={handleMouseDown} />
         </div>
     )
 }

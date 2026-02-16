@@ -4,8 +4,8 @@ export interface ButtonArrowProps {
 }
 
 export interface DraggableProps {
-    barRef: React.RefObject<HTMLDivElement | null>;
-    buttonRef: React.RefObject<HTMLButtonElement | null>;
-    listIndex: number;
-    selectIndex: (index: number) => void;
+    barRef?: React.RefObject<HTMLDivElement | null>;
+    buttonRef?: React.RefObject<HTMLButtonElement | null>;
+    position?: { x: number };
+    handleMouseDown?: (event: React.MouseEvent) => void;
 }
