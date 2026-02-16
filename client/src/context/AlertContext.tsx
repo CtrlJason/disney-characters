@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 // Hooks
-import alertHook from "../hooks/forms/alertHook";
+import alertHook from "../hooks/alerts/alertHook";
 
 // Types
 import type { alertContextProps } from "../types/alert";
