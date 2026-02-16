@@ -156,7 +156,8 @@ El servidor Backend (API) estará disponible en `http://localhost:3000` (o el pu
 En una **nueva terminal/CMD separada**, navega a la carpeta `client/` (Frontend):
 
 ```bash
-cd ../client
+cd disney-characters
+cd client
 npm install
 ```
 
