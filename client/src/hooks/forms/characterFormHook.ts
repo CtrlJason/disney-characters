@@ -66,6 +66,14 @@ const characterFormHook = () => {
             message: "Personaje creado exitosamente",
             type: "success",
         });
+
+        setCreatedCharacter({
+            name: "",
+            imageUrl: "",
+            description: "",
+            films: [],
+            date: "",
+        });
     };
 
     return {

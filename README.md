@@ -141,10 +141,6 @@ npx prisma generate
 
 ### 6. Iniciar el Servidor Backend (API)
 
-#### 6.1. Abrir una nueva terminal para el Backend
-
-⚠️ **Importante**: Abre una nueva terminal/CMD separada para el backend. NO cierres la terminal donde Docker está corriendo.
-
 En la carpeta `api/`, ejecuta:
 
 ```bash
