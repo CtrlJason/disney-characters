@@ -1,7 +1,6 @@
 import "dotenv/config";
 
 import express from "express";
-
 import cors from "cors";
 
 // Middlewares
@@ -16,9 +15,13 @@ import router from "./src/routes/routes.ts";
 // Types
 import type { Request, Response } from "express";
 
+/**
+ * Inicialización de la aplicación Express
+ * Configuración de middlewares, rutas y manejo de errores
+ */
 const app = express();
 
-// Puerto
+// Puerto de la aplicación
 const PORT = process.env["PORT"] || 3001;
 
 app.use(express.json());
